@@ -1,0 +1,152 @@
+{
+  "header": {
+    "title": "HantaTrack",
+    "subtitle": "Global",
+    "livePanel": "Real-Time Surveillance Panel",
+    "dataUpdated": "Data Updated",
+    "toggleTheme": "Toggle theme",
+    "infoPanel": "About Hantavirus",
+    "export": "Export CSV",
+    "switchLanguage": "Switch to Spanish"
+  },
+  "stats": {
+    "confirmedCases": "Confirmed Cases",
+    "deaths": "Total Deaths",
+    "cfr": "Case Fatality Rate",
+    "countries": "Countries Affected",
+    "loading": "Loading data..."
+  },
+  "filters": {
+    "title": "Filters",
+    "allYears": "All Years",
+    "regions": {
+      "Global": "Global",
+      "Americas": "Americas",
+      "Europe": "Europe",
+      "Asia-Pacific": "Asia-Pacific",
+      "Africa": "Africa"
+    }
+  },
+  "map": {
+    "loading": "Loading surveillance data...",
+    "locations": "locations",
+    "severity": {
+      "title": "Severity",
+      "critical": "Critical (≥1000)",
+      "high": "High (100-999)",
+      "moderate": "Moderate (50-99)",
+      "low": "Low (<50)"
+    },
+    "popup": {
+      "cases": "Cases",
+      "deaths": "Deaths",
+      "cfr": "Case Fatality Rate",
+      "updated": "Updated:",
+      "source": "Source:"
+    }
+  },
+  "news": {
+    "title": "Live Feed",
+    "live": "Live",
+    "justNow": "Just now",
+    "daysAgo": "{{count}}d ago",
+    "hoursAgo": "{{count}}h ago",
+    "categories": {
+      "outbreak": "Outbreak",
+      "research": "Research",
+      "policy": "Policy",
+      "alert": "Alert"
+    }
+  },
+  "alerts": {
+    "critical": "CRITICAL",
+    "warning": "WARNING",
+    "info": "INFO"
+  },
+  "trends": {
+    "title": "Monthly Trend",
+    "subtitle": "Cases and deaths evolution — {{year}}",
+    "cases": "Cases",
+    "deaths": "Deaths",
+    "months": {
+      "Jan": "Jan", "Feb": "Feb", "Mar": "Mar", "Apr": "Apr", "May": "May", "Jun": "Jun",
+      "Jul": "Jul", "Aug": "Aug", "Sep": "Sep", "Oct": "Oct", "Nov": "Nov", "Dec": "Dec"
+    }
+  },
+  "ranking": {
+    "title": "Country Ranking",
+    "subtitle": "Top countries affected by Hantavirus",
+    "cases": "Cases",
+    "deaths": "Deaths"
+  },
+  "info": {
+    "title": "Hantavirus Information",
+    "subtitle": "Public health quick guide",
+    "sections": {
+      "what": {
+        "title": "What is Hantavirus?",
+        "content": "Hantaviruses are a family of viruses transmitted mainly by rodents that can cause severe disease in humans. There are two main syndromes: Hantavirus Pulmonary Syndrome (HPS) in the Americas and Hemorrhagic Fever with Renal Syndrome (HFRS) in Europe and Asia."
+      },
+      "transmission": {
+        "title": "Transmission",
+        "content": "Infection occurs mainly by inhalation of aerosolized particles from infected rodent urine, droppings, or saliva. It can also be transmitted through direct contact with contaminated materials or, in rare cases of Andes virus, person-to-person."
+      },
+      "symptoms": {
+        "title": "Symptoms",
+        "content": "Initial symptoms include high fever, severe muscle aches, headache, and gastrointestinal distress. In the cardiopulmonary phase, severe shortness of breath, cough, and pulmonary edema appear. The incubation period is 1 to 5 weeks."
+      },
+      "treatment": {
+        "title": "Treatment",
+        "content": "There is no specific antiviral treatment or approved vaccine. Management is intensive supportive care: oxygen therapy, mechanical ventilation, and hemodynamic support. Early detection and early ICU admission significantly improve survival."
+      },
+      "prevention": {
+        "title": "Prevention",
+        "content": "Seal rodent entryways into homes, ventilate enclosed spaces before entering, wear masks when cleaning areas with rodent droppings, store food in airtight containers, and keep vegetation short around homes."
+      },
+      "risk": {
+        "title": "Risk Factors",
+        "content": "Rural activities, cleaning cabins or closed barns, contact with wild rodents, areas with high rodent density, periods following heavy rainfall (which increase rodent populations), and agricultural workers in endemic areas."
+      },
+      "species": {
+        "title": "Main Strains",
+        "content": "Andes Virus (ANDV) — Argentina/Chile, person-to-person possible. Sin Nombre (SNV) — US. Puumala (PUUV) — Europe, causes mild HFRS. Hantaan (HTNV) — Asia, causes severe HFRS. Seoul (SEOV) — worldwide distribution via rats."
+      }
+    },
+    "disclaimer": "Sources: WHO, CDC, PAHO, ECDC • This information is for educational purposes and does not replace professional medical advice."
+  },
+  "footer": {
+    "disclaimer": "Disclaimer: The data shown in this dashboard is simulated for demonstration and educational purposes. It should not be used to make clinical or public health decisions. For official information, consult the cited sources. This system is not affiliated with any governmental or international public health organization.",
+    "madeWith": "Made with"
+  },
+  "mockData": {
+    "countries": {
+      "AR": "Argentina",
+      "US": "United States",
+      "FI": "Finland",
+      "CN": "China",
+      "DE": "Germany",
+      "SE": "Sweden",
+      "BE": "Belgium",
+      "FR": "France",
+      "RU": "Russia",
+      "HR": "Croatia",
+      "SI": "Slovenia",
+      "KR": "South Korea",
+      "CL": "Chile"
+    },
+    "alerts": {
+      "alert-001": {
+        "title": "Active Outbreak in Patagonia",
+        "message": "134 confirmed cases of HPS reported in the Patagonian region of Argentina with a case fatality rate of 13.4%. Health authorities have activated emergency protocols."
+      },
+      "alert-002": {
+        "title": "Unusual Surge in Finland",
+        "message": "Finland reports 2,847 Puumala virus cases in 2026, the most active season in a decade. Enhanced surveillance recommended in eastern regions."
+      },
+      "alert-003": {
+        "title": "WHO Updates Surveillance Guidelines",
+        "message": "The World Health Organization has published new technical guidelines for integrated Hantavirus surveillance in endemic regions."
+      }
+    }
+  }
+}

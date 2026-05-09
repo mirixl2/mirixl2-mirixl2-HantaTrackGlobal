@@ -1,0 +1,152 @@
+{
+  "header": {
+    "title": "HantaTrack",
+    "subtitle": "Global",
+    "livePanel": "Panel de Vigilancia en Tiempo Real",
+    "dataUpdated": "Datos Actualizados",
+    "toggleTheme": "Cambiar tema",
+    "infoPanel": "Sobre Hantavirus",
+    "export": "Exportar CSV",
+    "switchLanguage": "Cambiar a Inglés"
+  },
+  "stats": {
+    "confirmedCases": "Casos Confirmados",
+    "deaths": "Total Fallecidos",
+    "cfr": "Tasa de Letalidad",
+    "countries": "Países Afectados",
+    "loading": "Cargando..."
+  },
+  "filters": {
+    "title": "Filtros",
+    "allYears": "Todos los Años",
+    "regions": {
+      "Global": "Global",
+      "Americas": "Américas",
+      "Europe": "Europa",
+      "Asia-Pacific": "Asia-Pacífico",
+      "Africa": "África"
+    }
+  },
+  "map": {
+    "loading": "Cargando datos de vigilancia...",
+    "locations": "ubicaciones",
+    "severity": {
+      "title": "Severidad",
+      "critical": "Crítico (≥1000)",
+      "high": "Alto (100-999)",
+      "moderate": "Moderado (50-99)",
+      "low": "Bajo (<50)"
+    },
+    "popup": {
+      "cases": "Casos",
+      "deaths": "Fallecidos",
+      "cfr": "Tasa de Letalidad",
+      "updated": "Actualizado:",
+      "source": "Fuente:"
+    }
+  },
+  "news": {
+    "title": "Noticias en Vivo",
+    "live": "En Vivo",
+    "justNow": "Ahora",
+    "daysAgo": "hace {{count}}d",
+    "hoursAgo": "hace {{count}}h",
+    "categories": {
+      "outbreak": "Brote",
+      "research": "Investigación",
+      "policy": "Política",
+      "alert": "Alerta"
+    }
+  },
+  "alerts": {
+    "critical": "CRÍTICO",
+    "warning": "ADVERTENCIA",
+    "info": "INFORMACIÓN"
+  },
+  "trends": {
+    "title": "Tendencia Mensual",
+    "subtitle": "Evolución de casos y fallecidos — {{year}}",
+    "cases": "Casos",
+    "deaths": "Fallecidos",
+    "months": {
+      "Jan": "Ene", "Feb": "Feb", "Mar": "Mar", "Apr": "Abr", "May": "May", "Jun": "Jun",
+      "Jul": "Jul", "Aug": "Ago", "Sep": "Sep", "Oct": "Oct", "Nov": "Nov", "Dec": "Dic"
+    }
+  },
+  "ranking": {
+    "title": "Ranking por País",
+    "subtitle": "Top países afectados por Hantavirus",
+    "cases": "Casos",
+    "deaths": "Fallecidos"
+  },
+  "info": {
+    "title": "Información sobre Hantavirus",
+    "subtitle": "Guía rápida de salud pública",
+    "sections": {
+      "what": {
+        "title": "¿Qué es el Hantavirus?",
+        "content": "Los Hantavirus son una familia de virus transmitidos por roedores que causan enfermedades graves en humanos. Existen dos síndromes principales: el Síndrome Pulmonar por Hantavirus (SPH) en las Américas y la Fiebre Hemorrágica con Síndrome Renal (FHSR) en Europa y Asia."
+      },
+      "transmission": {
+        "title": "Transmisión",
+        "content": "El contagio ocurre principalmente por inhalación de partículas aerosolizadas de orina, heces o saliva de roedores infectados. También puede transmitirse por contacto directo con materiales contaminados o, en casos excepcionales del virus Andes, de persona a persona."
+      },
+      "symptoms": {
+        "title": "Síntomas",
+        "content": "Los síntomas iniciales incluyen fiebre alta, dolores musculares intensos, dolor de cabeza y malestar gastrointestinal. En la fase cardiopulmonar aparece dificultad respiratoria severa, tos y edema pulmonar. El período de incubación es de 1 a 5 semanas."
+      },
+      "treatment": {
+        "title": "Tratamiento",
+        "content": "No existe tratamiento antiviral específico ni vacuna aprobada. El manejo es de soporte intensivo: oxigenoterapia, ventilación mecánica y soporte hemodinámico. La detección temprana y el ingreso precoz a UCI mejoran significativamente la supervivencia."
+      },
+      "prevention": {
+        "title": "Prevención",
+        "content": "Sellar entradas de roedores en viviendas, ventilar espacios cerrados antes de ingresar, usar mascarilla al limpiar áreas con excrementos de roedores, almacenar alimentos en contenedores herméticos y mantener la vegetación corta alrededor de las viviendas."
+      },
+      "risk": {
+        "title": "Factores de Riesgo",
+        "content": "Actividades rurales, limpieza de cabañas o graneros cerrados, contacto con roedores silvestres, zonas con alta densidad de roedores, períodos post-lluvias intensas (que incrementan las poblaciones de roedores), y trabajadores agrícolas en zonas endémicas."
+      },
+      "species": {
+        "title": "Principales Cepas",
+        "content": "Virus Andes (ANDV) — Argentina/Chile, persona-persona posible. Sin Nombre (SNV) — EE.UU. Puumala (PUUV) — Europa, causa FHSR leve. Hantaan (HTNV) — Asia, causa FHSR severa. Seoul (SEOV) — distribución mundial vía ratas."
+      }
+    },
+    "disclaimer": "Fuentes: OMS, CDC, OPS/PAHO, ECDC • Esta información es de carácter educativo y no sustituye la consulta médica profesional."
+  },
+  "footer": {
+    "disclaimer": "Aviso: Los datos mostrados en este panel son simulados con fines demostrativos y educativos. No deben utilizarse para tomar decisiones clínicas o de salud pública. Para información oficial, consulte las fuentes citadas. Este sistema no está afiliado a ninguna organización de salud pública gubernamental o internacional.",
+    "madeWith": "Hecho con"
+  },
+  "mockData": {
+    "countries": {
+      "AR": "Argentina",
+      "US": "Estados Unidos",
+      "FI": "Finlandia",
+      "CN": "China",
+      "DE": "Alemania",
+      "SE": "Suecia",
+      "BE": "Bélgica",
+      "FR": "Francia",
+      "RU": "Rusia",
+      "HR": "Croacia",
+      "SI": "Eslovenia",
+      "KR": "Corea del Sur",
+      "CL": "Chile"
+    },
+    "alerts": {
+      "alert-001": {
+        "title": "Brote activo en la Patagonia",
+        "message": "Se han reportado 134 casos confirmados de SPH en la región patagónica de Argentina con una tasa de letalidad del 13.4%. Las autoridades sanitarias han activado el protocolo de emergencia."
+      },
+      "alert-002": {
+        "title": "Aumento inusual en Finlandia",
+        "message": "Finlandia registra 2.847 casos de virus Puumala en 2026, la temporada más activa en una década. Se recomienda vigilancia reforzada en las regiones del este."
+      },
+      "alert-003": {
+        "title": "OMS actualiza guías de vigilancia",
+        "message": "La Organización Mundial de la Salud ha publicado nuevas directrices técnicas para la vigilancia integrada del Hantavirus en regiones endémicas."
+      }
+    }
+  }
+}
