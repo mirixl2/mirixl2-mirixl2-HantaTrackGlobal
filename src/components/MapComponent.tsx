@@ -3,12 +3,12 @@ import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaf
 import { MapPin, Calendar, Database, Bug, Users, Skull } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import type { HantavirusCase } from '../types';
+import { useTheme } from '../context/ThemeContext';
 import 'leaflet/dist/leaflet.css';
 
 interface MapComponentProps {
   cases: HantavirusCase[] | undefined;
   isLoading: boolean;
-  isDarkMode: boolean;
 }
 
 // Fix Leaflet rendering on mobile: force invalidateSize on mount & resize
@@ -98,8 +98,9 @@ const DARK_TILES = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.pn
 const LIGHT_TILES = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 const ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>';
 
-export default function MapComponent({ cases, isLoading, isDarkMode }: MapComponentProps) {
+export default function MapComponent({ cases, isLoading }: MapComponentProps) {
   const { t, i18n } = useTranslation();
+  const { isDarkMode } = useTheme();
 
   if (isLoading) {
     return (
@@ -145,9 +146,10 @@ export default function MapComponent({ cases, isLoading, isDarkMode }: MapCompon
               weight: 2,
               opacity: 0.8,
             }}
+            aria-label={`Marcador para ${caseData.country}`}
           >
             <Popup maxWidth={280} minWidth={240}>
-                <div className="p-1">
+                <div className="p-1" role="dialog" aria-label={`Información de casos en ${caseData.country}`}>
                   {/* Header */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">

@@ -1,6 +1,8 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type { CaseFilters, ThemeMode } from './types';
+import { useTranslation } from 'react-i18next';
+import type { CaseFilters } from './types';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { useCases, useNews, useStats, useTrends, useRankings, useAlerts } from './hooks/useHantaData';
 import Header from './components/Header';
 import StatsCard from './components/StatsCard';
@@ -22,25 +24,20 @@ const queryClient = new QueryClient({
 });
 
 function Dashboard() {
-  const [theme, setTheme] = useState<ThemeMode>('dark');
-  const [filters, setFilters] = useState<CaseFilters>({ year: 2026, region: 'Global' });
+  const { isDarkMode } = useTheme();
+  const { i18n } = useTranslation();
+  const [filters, setFilters] = useState<CaseFilters>({ year: 2024, region: 'Global' });
 
   const { data: cases, isLoading: casesLoading } = useCases(filters);
-  const { data: news, isLoading: newsLoading } = useNews();
+  const { data: news, isLoading: newsLoading } = useNews(i18n.language);
   const { data: stats, isLoading: statsLoading } = useStats(filters.year);
   const { data: trends, isLoading: trendsLoading } = useTrends();
   const { data: rankings, isLoading: rankingsLoading } = useRankings(filters);
   const { data: alerts, isLoading: alertsLoading } = useAlerts();
 
-  const toggleTheme = useCallback(() => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  }, []);
-
-  const isDarkMode = theme === 'dark';
-
   return (
     <div className={`min-h-screen flex flex-col ${isDarkMode ? '' : 'light-mode'}`}>
-      <Header theme={theme} onToggleTheme={toggleTheme} isDarkMode={isDarkMode} cases={cases} />
+      <Header cases={cases} />
 
       {/* Alert banner */}
       <AlertBanner alerts={alerts} isLoading={alertsLoading} />
@@ -57,7 +54,7 @@ function Dashboard() {
 
           {/* Map (fills remaining space) */}
           <div className="h-[50vh] lg:h-auto lg:flex-1 lg:min-h-0">
-            <MapComponent cases={cases} isLoading={casesLoading} isDarkMode={isDarkMode} />
+            <MapComponent cases={cases} isLoading={casesLoading} />
           </div>
 
           {/* Charts row — below the map */}
@@ -85,8 +82,10 @@ function Dashboard() {
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Dashboard />
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <Dashboard />
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }

@@ -21,7 +21,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 
   return (
     <div className="glass rounded-xl px-3 py-2.5 border border-white/[0.08] shadow-xl">
-      <p className="text-[11px] font-semibold text-surface-200 mb-1.5">{t(`trends.months.${label}`, { defaultValue: label })} 2026</p>
+      <p className="text-[11px] font-semibold text-surface-200 mb-1.5">{t(`trends.months.${label}`, { defaultValue: label })} 2024</p>
       {payload.map((entry) => (
         <div key={entry.dataKey} className="flex items-center gap-2 text-[11px]">
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
@@ -52,7 +52,7 @@ export default function TrendChart({ data, isLoading }: TrendChartProps) {
         </div>
         <div>
           <h3 className="text-xs font-semibold text-surface-100">{t('trends.title')}</h3>
-          <p className="text-[10px] text-surface-500">{t('trends.subtitle', { year: '2026' })}</p>
+          <p className="text-[10px] text-surface-500">{t('trends.subtitle', { year: '2024' })}</p>
         </div>
       </div>
 

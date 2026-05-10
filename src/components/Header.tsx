@@ -1,18 +1,17 @@
 import { Bug, Sun, Moon, Radio, Languages } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import type { ThemeMode, HantavirusCase } from '../types';
+import type { HantavirusCase } from '../types';
 import InfoPanel from './InfoPanel';
 import ExportButton from './ExportButton';
+import { useTheme } from '../context/ThemeContext';
 
 interface HeaderProps {
-  theme: ThemeMode;
-  onToggleTheme: () => void;
-  isDarkMode: boolean;
   cases: HantavirusCase[] | undefined;
 }
 
-export default function Header({ theme, onToggleTheme, isDarkMode, cases }: HeaderProps) {
+export default function Header({ cases }: HeaderProps) {
   const { t, i18n } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es');
@@ -43,7 +42,7 @@ export default function Header({ theme, onToggleTheme, isDarkMode, cases }: Head
 
       <div className="flex items-center gap-2">
         {/* Info panel trigger */}
-        <InfoPanel isDarkMode={isDarkMode} />
+        <InfoPanel />
 
         {/* Export CSV */}
         <ExportButton cases={cases} />
@@ -75,7 +74,7 @@ export default function Header({ theme, onToggleTheme, isDarkMode, cases }: Head
         {/* Theme toggle */}
         <button
           id="theme-toggle"
-          onClick={onToggleTheme}
+          onClick={toggleTheme}
           className="
             flex items-center justify-center w-8 h-8 rounded-lg
             bg-white/[0.05] border border-white/[0.08]

@@ -1,10 +1,8 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Info, X, Rat, Droplets, Heart, Shield, Thermometer, AlertTriangle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
-interface InfoPanelProps {
-  isDarkMode: boolean;
-}
+import { useTheme } from '../context/ThemeContext';
 
 const sections = [
   {
@@ -58,9 +56,10 @@ const sections = [
   },
 ];
 
-export default function InfoPanel({ isDarkMode }: InfoPanelProps) {
+export default function InfoPanel() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+  const { isDarkMode } = useTheme();
 
   return (
     <>
@@ -82,7 +81,7 @@ export default function InfoPanel({ isDarkMode }: InfoPanelProps) {
       </button>
 
       {/* Modal overlay */}
-      {isOpen && (
+      {isOpen && createPortal(
         <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4">
           {/* Backdrop */}
           <div
@@ -150,7 +149,8 @@ export default function InfoPanel({ isDarkMode }: InfoPanelProps) {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
