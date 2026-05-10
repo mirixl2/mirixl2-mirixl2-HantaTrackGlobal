@@ -25,14 +25,16 @@ function MapResizeHandler() {
     const handleResize = () => {
       map.invalidateSize();
     };
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', () => {
+    const handleOrientationChange = () => {
       setTimeout(handleResize, 200);
-    });
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleOrientationChange);
 
     return () => {
       clearTimeout(timer);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
     };
   }, [map]);
 
@@ -118,7 +120,6 @@ export default function MapComponent({ cases, isLoading, isDarkMode }: MapCompon
         scrollWheelZoom={true}
         dragging={true}
         touchZoom={true}
-        tap={false}
         className="w-full h-full"
         zoomControl={true}
         minZoom={2}

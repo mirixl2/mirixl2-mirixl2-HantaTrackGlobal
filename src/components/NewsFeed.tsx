@@ -1,5 +1,6 @@
 import { Newspaper, ExternalLink, AlertTriangle, Beaker, FileText, ShieldAlert, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useTimeFormatter } from '../hooks/useTimeFormatter';
 import type { NewsArticle } from '../types';
 
 interface NewsFeedProps {
@@ -14,21 +15,11 @@ const categoryConfig: Record<NewsArticle['category'], { icon: React.ReactNode; c
   alert: { icon: <ShieldAlert className="w-3.5 h-3.5" />, color: 'text-warning-400 bg-warning-500/15', label: 'Alerta' },
 };
 
-function formatTimeAgo(dateString: string, t: any, language: string): string {
-  const now = new Date();
-  const date = new Date(dateString);
-  const diffMs = now.getTime() - date.getTime();
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffDays = Math.floor(diffHours / 24);
-
-  if (diffDays > 7) return date.toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', { month: 'short', day: 'numeric' });
-  if (diffDays > 0) return t('news.daysAgo', { count: diffDays });
-  if (diffHours > 0) return t('news.hoursAgo', { count: diffHours });
-  return t('news.justNow');
-}
+// formatTimeAgo logic extracted to src/hooks/useTimeFormatter.ts
 
 export default function NewsFeed({ news, isLoading }: NewsFeedProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { formatTimeAgo } = useTimeFormatter();
   
   return (
     <div className="flex flex-col h-full">
@@ -55,7 +46,27 @@ export default function NewsFeed({ news, isLoading }: NewsFeedProps) {
       <div className="flex-1 overflow-y-auto p-3 space-y-2.5">
         {isLoading ? (
           [...Array(5)].map((_, i) => (
-            <div key={i} className="shimmer h-24 rounded-xl" />
+            <div
+              key={i}
+              className="rounded-xl p-3.5 bg-white/[0.03] border border-white/[0.04] space-y-2.5 animate-pulse"
+            >
+              {/* Category badge + time */}
+              <div className="flex items-center justify-between">
+                <div className="h-4 w-20 rounded-full bg-white/[0.06]" />
+                <div className="h-3 w-14 rounded-full bg-white/[0.04]" />
+              </div>
+              {/* Title (2 lines) */}
+              <div className="h-4 w-full rounded bg-white/[0.06]" />
+              <div className="h-4 w-3/4 rounded bg-white/[0.06]" />
+              {/* Excerpt */}
+              <div className="h-3 w-full rounded bg-white/[0.04]" />
+              <div className="h-3 w-5/6 rounded bg-white/[0.04]" />
+              {/* Footer */}
+              <div className="flex items-center justify-between pt-1">
+                <div className="h-3 w-16 rounded bg-white/[0.04]" />
+                <div className="h-3 w-3 rounded bg-white/[0.04]" />
+              </div>
+            </div>
           ))
         ) : (
           news?.map((article, idx) => {
@@ -83,7 +94,7 @@ export default function NewsFeed({ news, isLoading }: NewsFeedProps) {
                   </span>
                   <span className="flex items-center gap-1 text-[10px] text-surface-500">
                     <Clock className="w-3 h-3" />
-                    {formatTimeAgo(article.publishedAt, t, i18n.language)}
+                    {formatTimeAgo(article.publishedAt)}
                   </span>
                 </div>
 
