@@ -11,6 +11,34 @@ interface MapComponentProps {
   isDarkMode: boolean;
 }
 
+// Fix Leaflet rendering on mobile: force invalidateSize on mount & resize
+function MapResizeHandler() {
+  const map = useMap();
+
+  useEffect(() => {
+    // Force Leaflet to recalculate container size after mount
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 100);
+
+    // Also invalidate on any subsequent resizes (orientation change, etc.)
+    const handleResize = () => {
+      map.invalidateSize();
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(handleResize, 200);
+    });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [map]);
+
+  return null;
+}
+
 // Dynamically adjust map view when cases change
 function MapUpdater({ cases }: { cases: HantavirusCase[] | undefined }) {
   const map = useMap();
@@ -88,15 +116,20 @@ export default function MapComponent({ cases, isLoading, isDarkMode }: MapCompon
         center={[20, 0]}
         zoom={2}
         scrollWheelZoom={true}
+        dragging={true}
+        touchZoom={true}
+        tap={false}
         className="w-full h-full"
         zoomControl={true}
         minZoom={2}
         maxBounds={[[-85, -180], [85, 180]]}
+        style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
           url={isDarkMode ? DARK_TILES : LIGHT_TILES}
           attribution={ATTRIBUTION}
         />
+        <MapResizeHandler />
         <MapUpdater cases={cases} />
 
         {cases?.map((caseData) => (
