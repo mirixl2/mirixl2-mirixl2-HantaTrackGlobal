@@ -46,7 +46,7 @@ function Dashboard() {
       <AlertBanner alerts={alerts} isLoading={alertsLoading} />
 
       {/* Main content */}
-      <main className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+      <main className="flex-1 flex flex-col lg:flex-row">
         {/* Left: Map + Stats (70% on desktop) */}
         <div className="flex-1 lg:w-[70%] flex flex-col min-h-0 p-3 gap-3">
           {/* Stats row */}
@@ -56,7 +56,7 @@ function Dashboard() {
           <FilterBar filters={filters} onFilterChange={setFilters} />
 
           {/* Map (fills remaining space) */}
-          <div className="flex-1 min-h-[300px] lg:min-h-0">
+          <div className="h-[50vh] lg:h-auto lg:flex-1 lg:min-h-0">
             <MapComponent cases={cases} isLoading={casesLoading} isDarkMode={isDarkMode} />
           </div>
 

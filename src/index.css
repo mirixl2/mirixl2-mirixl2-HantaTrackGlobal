@@ -115,6 +115,8 @@ body {
   background: #0d1117 !important;
   font-family: var(--font-sans) !important;
   border-radius: var(--radius-card);
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .leaflet-popup-content-wrapper {
