@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import type { CaseFilters } from './types';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { useCases, useNews, useStats, useTrends, useRankings, useAlerts } from './hooks/useHantaData';
 import Header from './components/Header';
 import StatsCard from './components/StatsCard';
@@ -24,7 +24,6 @@ const queryClient = new QueryClient({
 });
 
 function Dashboard() {
-  const { isDarkMode } = useTheme();
   const { i18n } = useTranslation();
   const [filters, setFilters] = useState<CaseFilters>({ year: 2024, region: 'Global' });
 
@@ -36,7 +35,7 @@ function Dashboard() {
   const { data: alerts, isLoading: alertsLoading } = useAlerts();
 
   return (
-    <div className={`min-h-screen flex flex-col ${isDarkMode ? '' : 'light-mode'}`}>
+    <div className="min-h-screen flex flex-col">
       <Header cases={cases} />
 
       {/* Alert banner */}

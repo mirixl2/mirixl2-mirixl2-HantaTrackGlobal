@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-@theme {
-  /* ─── Medical-grade color palette ─── */
+:root {
+  /* ─── Medical-grade color palette (Base) ─── */
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
@@ -25,28 +25,7 @@
   --color-accent-800: #115e59;
   --color-accent-900: #134e4a;
 
-  --color-danger-50: #fef2f2;
-  --color-danger-100: #fee2e2;
-  --color-danger-200: #fecaca;
-  --color-danger-300: #fca5a5;
-  --color-danger-400: #f87171;
-  --color-danger-500: #ef4444;
-  --color-danger-600: #dc2626;
-  --color-danger-700: #b91c1c;
-  --color-danger-800: #991b1b;
-  --color-danger-900: #7f1d1d;
-
-  --color-warning-50: #fffbeb;
-  --color-warning-100: #fef3c7;
-  --color-warning-200: #fde68a;
-  --color-warning-300: #fcd34d;
-  --color-warning-400: #fbbf24;
-  --color-warning-500: #f59e0b;
-  --color-warning-600: #d97706;
-  --color-warning-700: #b45309;
-  --color-warning-800: #92400e;
-  --color-warning-900: #78350f;
-
+  /* ─── Default Theme (Dark) ─── */
   --color-surface-50: #f8fafc;
   --color-surface-100: #f1f5f9;
   --color-surface-200: #e2e8f0;
@@ -59,16 +38,81 @@
   --color-surface-900: #0f172a;
   --color-surface-950: #020617;
 
-  /* ─── Dark mode surfaces ─── */
   --color-dark-bg: #0a0f1a;
   --color-dark-card: #111827;
   --color-dark-border: #1f2937;
   --color-dark-hover: #1a2332;
+  
+  --app-bg: var(--color-dark-bg);
+  --app-text: var(--color-surface-100);
+}
 
-  /* ─── Typography ─── */
+.light-mode {
+  /* ─── Light Mode Overrides ─── */
+  --color-surface-50: #020617;
+  --color-surface-100: #0f172a;
+  --color-surface-200: #1e293b;
+  --color-surface-300: #334155;
+  --color-surface-400: #475569;
+  --color-surface-500: #64748b;
+  --color-surface-600: #94a3b8;
+  --color-surface-700: #cbd5e1;
+  --color-surface-800: #e2e8f0;
+  --color-surface-900: #f1f5f9;
+  --color-surface-950: #f8fafc;
+
+  --color-dark-bg: #f1f5f9;
+  --color-dark-card: #ffffff;
+  --color-dark-border: #e2e8f0;
+  --color-dark-hover: #f8fafc;
+
+  --app-bg: var(--color-dark-bg);
+  --app-text: var(--color-surface-100);
+}
+
+@theme {
+  /* ─── Semantic mapping to Tailwind ─── */
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
+
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-100: var(--color-accent-100);
+  --color-accent-200: var(--color-accent-200);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+  --color-accent-800: var(--color-accent-800);
+  --color-accent-900: var(--color-accent-900);
+
+  --color-surface-50: var(--color-surface-50);
+  --color-surface-100: var(--color-surface-100);
+  --color-surface-200: var(--color-surface-200);
+  --color-surface-300: var(--color-surface-300);
+  --color-surface-400: var(--color-surface-400);
+  --color-surface-500: var(--color-surface-500);
+  --color-surface-600: var(--color-surface-600);
+  --color-surface-700: var(--color-surface-700);
+  --color-surface-800: var(--color-surface-800);
+  --color-surface-900: var(--color-surface-900);
+  --color-surface-950: var(--color-surface-950);
+
+  --color-dark-bg: var(--color-dark-bg);
+  --color-dark-card: var(--color-dark-card);
+  --color-dark-border: var(--color-dark-border);
+  --color-dark-hover: var(--color-dark-hover);
+
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-
-  /* ─── Radius ─── */
   --radius-card: 0.75rem;
   --radius-btn: 0.5rem;
   --radius-pill: 9999px;
@@ -88,10 +132,11 @@ html {
 }
 
 body {
-  background: var(--color-dark-bg);
-  color: var(--color-surface-100);
+  background: var(--app-bg);
+  color: var(--app-text);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ─── Custom scrollbar ─── */
